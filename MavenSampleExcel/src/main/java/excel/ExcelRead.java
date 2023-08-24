@@ -19,16 +19,16 @@ public class ExcelRead {
 	ExcelRead() throws IOException {
 		FileInputStream file = new FileInputStream("C:\\Users\\91623\\Desktop\\Java\\ReadExcel.xlsx");
 
-		XSSFWorkbook workbook = new XSSFWorkbook(file);
+		XSSFWorkbook workbook =  new XSSFWorkbook(file);
 
-		sheet = workbook.getSheet("Sheet1");
+		sheet =  workbook.getSheet("Sheet1");
 	}
 
 	public String readData(int i, int j) {
 		row = sheet.getRow(i);
 		cell = row.getCell(j);
 
-		CellType type = cell.getCellType();
+		CellType type =  cell.getCellType();
 		try {
 			switch (type) {
 			case NUMERIC:
@@ -63,7 +63,7 @@ public class ExcelRead {
 
 		for (int i = 0; i < e.rowSize(); i++) {
 
-			for (int j = 0; j < e.cellSize(1); j++) {
+			for (int j = 0; j < e.cellSize(i); j++) {
 
 				System.out.println(e.readData(i, j) + "  ");
 
